@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="vi" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<title>Phần Mềm Hỗ Trợ Nhân Viên Bán Hàng</title>
+
+<link rel="stylesheet"
+ href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+ integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+ crossorigin="anonymous">
+ 
+</head>
+<body>
+
+ <div class="container my-2">
+ <h1>Danh sách nhân viên</h1>
+ 
+  <table border="1" class = "table table-striped table-responsive-md">
+   <thead>
+    <tr>
+     <th>Mã Hóa Đơn</th>
+     <th>Mã Nhân Viên</th>
+     <th>Mã Bàn Ăn</th>
+     <th>Tên Khách Hàng</th>
+     <th>Địa Chỉ Khách Hàng</th>
+     <th>Số Điện Thoại</th>
+     <th>Thời Gian</th>
+     <th>Tổng Tiền</th>
+    </tr>
+   </thead>
+   <tbody>
+    <tr th:each="hoadon : ${listHoaDons}">
+     <td th:text="${hoadon.maHD}"></td>
+     <td th:text="${hoadon.getNhanVIEN().getMaNV()}"></td>
+     <td th:text="${hoadon.getBanAN().getMaBANAN()}"></td>
+     <td th:text="${hoadon.tenKH}"></td>
+     <td th:text="${hoadon.diaCHIKH}"></td>
+     <td th:text="${hoadon.soDIENTHOAI}"></td>
+     <td th:text="${#dates.format(hoadon.thoiGIAN, 'dd-MM-yyyy HH:mm')}"></td>
+     <td th:text="${hoadon.tongTIEN}"></td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+</body>
+</html>
